@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<script>
+		
+		// function max(arr) {
+		// 	var m = arr[0];
+		// 	for (var i = 1; i < arr.length; i++) {
+		// 		if(arr[i] > m) m = arr[i];
+		// 	}
+		// }
+
+		function lab8(arr) {
+			if (arr.lenght === 0 || arr.length !== arr[0].length) return false;
+			var max = { value: arr[0][1], col: 1 };
+			for (var i = 0; i < arr.length - 1; i++) {
+				for (var j = 1 + i; j < arr[i].length; j++) {
+					if(arr[i][j] > max.value) {
+						max.value = arr[i][j];
+						max.col = j;
+					}
+				}
+			}
+
+			var copy = [];
+			for (var i = 0; i < arr.length; i++) {
+				copy[i] = [];
+				for (var j = 0; j < arr[i].length; j++) {
+					if(max.col !== j) copy[i].push(arr[i][j]);
+				}
+			}
+
+			return copy;
+		}
+
+		var arr = [
+			[1,0,3,-4,5],
+			[1,2,-3,4,0],
+			[1,2,3,4,50],
+			[1,2,3,4,5],
+			[1,2,3,4,5]
+		];
+
+		console.log(arr);
+		console.log(lab8(arr));
+	</script>
+
+
+	
+</body>
+</html>
